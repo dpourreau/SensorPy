@@ -1,0 +1,116 @@
+[build-system]
+requires = [
+    "setuptools>=45",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "SensorPy"
+version = "0.1.0"
+description = "Python bindings for Sensirion sensors (STC31-C, SHTC3, and SPS30)"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.8"
+
+authors = [
+  { name="Daniel POURREAU", email="pourreaudaniel@gmail.com" }
+]
+
+keywords = [
+  "sensirion",
+  "sensors",
+  "STC31-C",
+  "SHTC3",
+  "SPS30"
+]
+
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Topic :: Software Development :: Libraries",
+  "Topic :: System :: Hardware",
+  "Topic :: Scientific/Engineering :: Atmospheric Science"
+]
+
+dependencies = [
+  "pyserial>=3.0",
+  "smbus2>=0.4"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.0",
+  "pytest-cov>=4.0",
+  "black>=22.0",
+  "isort>=5.0",
+  "mypy>=1.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/dpourreau/SensorPy"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["sensorpy"]
+
+[tool.black]
+line-length = 130
+target-version = ["py38"]
+include = '\\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 130
+include_trailing_comma = true
+skip_glob = [
+    "**/venv/**",
+    "**/build/**"
+]
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+check_untyped_defs = true
+disallow_any_generics = false
+disallow_incomplete_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+strict_optional = true
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = [
+    "-ra",
+    "-q",
+    "--cov=sensorpy",
+    "--cov-report=term-missing"
+]
+testpaths = [
+    "tests"
+]

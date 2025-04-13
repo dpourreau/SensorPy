@@ -1,0 +1,4 @@
+[submodule "drivers_c"]
+	path = drivers_c
+	url = https://github.com/dpourreau/pm-gas-sensor-drivers.git
+	branch = main
