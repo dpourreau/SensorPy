@@ -191,4 +191,4 @@ The included sensor drivers are adapted from the following official Sensirion re
 - [Sensirion/embedded-uart-sps](https://github.com/Sensirion/embedded-uart-sps)
 - [Sensirion/raspberry-pi-i2c-stc3x](https://github.com/Sensirion/raspberry-pi-i2c-stc3x)
 
-See [`drivers_c/LICENSE`](https://github.com/dpourreau/pm-gas-sensor-drivers/LICENSE) for the full BSD 3-Clause License text.
+See [`drivers_c/LICENSE`](https://github.com/dpourreau/SensorPy/blob/main/LICENSE) for the full BSD 3-Clause License text.
